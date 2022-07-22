@@ -1,13 +1,15 @@
-<?php 
+<?php
+use Microblog\Usuario;
 require_once "../inc/cabecalho-admin.php";
+
+$usuario = new Usuario;
+$listadeUsuarios = $usuario->listar();
 ?>
-
-
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Usuários <span class="badge bg-dark">X</span>
+		Usuários <span class="badge bg-dark"><?=count($listadeUsuarios)?></span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -19,7 +21,7 @@ require_once "../inc/cabecalho-admin.php";
 		<div class="table-responsive">
 		
 			<table class="table table-hover">
-				<thead class="table-light">
+				<thead class="table-dark">
 					<tr>
 						<th>Nome</th>
 						<th>E-mail</th>
@@ -29,24 +31,24 @@ require_once "../inc/cabecalho-admin.php";
 				</thead>
 
 				<tbody>
-
+<?php foreach($listadeUsuarios as $usuario){?>
 					<tr>
-						<td> Nome... </td>
-						<td> E-mail... </td>
-						<td> Tipo... </td>
+						<td> <?=$usuario['nome']?> </td>
+						<td> <?=$usuario['email']?> </td>
+						<td> <?=$usuario['tipo']?> </td>
 						<td class="text-center">
-							<a class="btn btn-warning" 
-							href="usuario-atualiza.php">
+							<a class="btn btn-warning atualizar" 
+							href="usuario-atualiza.php?id=<?=$usuario['id']?>">
 							<i class="bi bi-pencil"></i> Atualizar
 							</a>
 						
 							<a class="btn btn-danger excluir" 
-							href="usuario-exclui.php">
+							href="usuario-exclui.php?id=<?=$usuario['id']?>">
 							<i class="bi bi-trash"></i> Excluir
 							</a>
 						</td>
 					</tr>
-
+<?php } ?>
 				</tbody>                
 			</table>
 	</div>
