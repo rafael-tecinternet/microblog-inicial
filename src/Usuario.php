@@ -54,7 +54,7 @@ final class Usuario {
         return $resultado;
     }
 
-    public function atualizar(){
+    public function atualizar():void{
         $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, tipo = :tipo WHERE id = :id";
         try{
             $consulta = $this->conexao->prepare($sql);
@@ -66,6 +66,17 @@ final class Usuario {
             $consulta->execute();
         } catch(Exception $erro){
             die("Erro: ".$erro->getMessage());
+        }
+    }
+
+    public function excluir():void{
+        $sql = "DELETE FROM usuarios WHERE id = :id";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(':id', $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch (Exception $erro) {
+            die("Erro: " .$erro->getMessage());
         }
     }
 
