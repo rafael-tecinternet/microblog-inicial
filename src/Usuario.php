@@ -41,9 +41,46 @@ final class Usuario {
        
     }
 
+    public function listarUm():array{
+        $sql= "SELECT id, nome, email, senha, tipo FROM usuarios WHERE id = :id";
+        try{
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(":id", $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+            $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+        } catch(Exception $erro){
+            die("Erro: ".$erro->getMessage());
+        }
+        return $resultado;
+    }
+
+    public function atualizar(){
+        $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, tipo = :tipo WHERE id = :id";
+        try{
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(":nome", $this->nome, PDO::PARAM_STR);
+            $consulta->bindParam(":email", $this->email, PDO::PARAM_STR);
+            $consulta->bindParam(":senha", $this->senha, PDO::PARAM_STR);
+            $consulta->bindParam(":tipo", $this->tipo, PDO::PARAM_STR);
+            $consulta->bindParam(":id", $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch(Exception $erro){
+            die("Erro: ".$erro->getMessage());
+        }
+    }
 
     public function codificaSenha(string $senha):string{
         return password_hash($senha, PASSWORD_DEFAULT);
+    }
+    /* Usamos password_verify para comparar as 2, a digitada no formulário e a existente no banco */
+    public function verificarSenha(string $senhaFormulario, string $senhaBanco):string {
+        if (password_verify($senhaFormulario, $senhaBanco)) {
+           /* Se forem iguais, manteremos a senha existente do banco */ 
+           return $senhaBanco;
+        } else {
+            /* Se forem diferentes, então codificamos asta nova senha */
+           return $this->codificaSenha($senhaFormulario);
+        }
     }
 
     public function getId(): int
