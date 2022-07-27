@@ -1,6 +1,9 @@
 <?php
+use Microblog\ControleDeAcesso;
 use Microblog\Usuario;
 require_once "../vendor/autoload.php";
+$sessao = new ControleDeAcesso;
+$sessao->verfificaAcesso();
 $usuario = new Usuario;
 $usuario->setId($_GET['id']);
 $usuario->excluir();
