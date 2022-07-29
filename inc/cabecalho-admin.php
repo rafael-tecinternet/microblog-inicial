@@ -1,11 +1,14 @@
 <?php
 use Microblog\ControleDeAcesso;
-
 require_once "../vendor/autoload.php";
 /* Criamos objeto para acessar os recursos de sessão PHP na classe ControleDeAcesso */
 $sessao = new ControleDeAcesso;
 /* Executamos VerificaAcesso para checar se tem alguém logado */
 $sessao->verfificaAcesso();
+/* Se o parâmetro ?sair existir, então faça o logout */
+if(isset($_GET['sair'])){
+    $sessao->logout();
+}
 $pagina = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
@@ -54,7 +57,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
                 <a class="nav-link" href="../index.php" target="_blank">Área pública</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fw-bold" href=""> <i class="bi bi-x-circle"></i> Sair</a>
+                <a class="nav-link fw-bold" href="?sair"> <i class="bi bi-x-circle"></i> Sair</a>
             </li>
         </ul>
 
