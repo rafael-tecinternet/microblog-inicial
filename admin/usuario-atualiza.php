@@ -2,6 +2,7 @@
 use Microblog\Usuario;
 require_once "../inc/cabecalho-admin.php";
 $usuario = new Usuario;
+$sessao->verfificaAcessoAdmin();
 $usuario->setId($_GET['id']);
 $dados = $usuario->listarUm();
 if(isset($_POST['atualizar'])){

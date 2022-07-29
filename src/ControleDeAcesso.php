@@ -34,6 +34,14 @@ final class ControleDeAcesso {
         header("location:../login.php?logout");
         die();
     }
+
+    public function verfificaAcessoAdmin():void{
+        /* !== diferente */
+        if ($_SESSION['tipo'] !== 'admin' ) {
+            header("location:nao-autorizado.php");
+            die();
+        }
+    }
 }
 
 ?>

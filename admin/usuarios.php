@@ -1,9 +1,9 @@
 <?php
 use Microblog\Usuario;
 require_once "../inc/cabecalho-admin.php";
-
 $usuario = new Usuario;
 $listadeUsuarios = $usuario->listar();
+$sessao->verfificaAcessoAdmin();
 ?>
 <div class="row">
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
