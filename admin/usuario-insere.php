@@ -1,6 +1,7 @@
 <?php
 use Microblog\Usuario;
 require_once "../inc/cabecalho-admin.php";
+$sessao->verfificaAcessoAdmin();
 if (isset($_POST['inserir'])) {
 	$usuario = new Usuario;
 	$usuario->setNome($_POST['nome']);
@@ -10,7 +11,7 @@ if (isset($_POST['inserir'])) {
 	$usuario->inserir();
 	header("location:usuarios.php");
 }
-$sessao->verfificaAcessoAdmin();
+
 ?>
 
 
