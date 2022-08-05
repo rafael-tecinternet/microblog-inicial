@@ -45,21 +45,34 @@ final class Noticia {
         }
     }
 
-        public function upload(array $arquivo){
-            /* Definindo os formato aceitos */
-            $tiposValidos = ["image/png","image/jpeg", "image/gif", "image/svg+xml"];
-            if (!in_array($arquivo['type'], $tiposValidos)){
-                die("<script> alert('Formato inválido!'); history.back(); </script>");
-            } 
-            /* Acessando apenas o nome do arquivo */
-            $nome = $arquivo['name'];
-            /* Acessando os dados de acesso temporário */
-            $temporario = $arquivo['tmp_name'];
-            /* Definindo a pasta de destino junto com o nome do arquivo */
-            $destino = "../imagem/".$nome;
-            /* Usamos a função a baixo para pegar da área temporária e enviar para pasta de destino (com o nome do arquivo) */
-            move_uploaded_file($temporario, $destino);
+    public function upload(array $arquivo){
+        /* Definindo os formato aceitos */
+        $tiposValidos = ["image/png","image/jpeg", "image/gif", "image/svg+xml"];
+        if (!in_array($arquivo['type'], $tiposValidos)){
+            die("<script> alert('Formato inválido!'); history.back(); </script>");
+        } 
+        /* Acessando apenas o nome do arquivo */
+        $nome = $arquivo['name'];
+        /* Acessando os dados de acesso temporário */
+        $temporario = $arquivo['tmp_name'];
+        /* Definindo a pasta de destino junto com o nome do arquivo */
+        $destino = "../imagem/".$nome;
+        /* Usamos a função a baixo para pegar da área temporária e enviar para pasta de destino (com o nome do arquivo) */
+        move_uploaded_file($temporario, $destino);
+    }
+
+    public function listar():array{
+        /* Se o tipo de usuário logado for admin */
+        if($this->usuario->getTipo() === 'admin'){
+            /* Então ele poderá acessar as notícias de todo mundo */
+            $sql = "";
+        } else {
+            /* Se não (ou seja, é um editor), este usuário (editor) poderá acessar SOMENTE suas próprias notícias */
+            $sql = "";
         }
+    }
+
+
     
 
     
