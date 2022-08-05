@@ -43,6 +43,16 @@ final class Noticia {
         } catch (Exception $erro) {
             die("Erro: ".$erro->getMessage());
         }
+
+        public function upload(array $arquivo){
+            /* Definindo os formato aceitos */
+            $tiposValidos = ["imagem/png","imagem/jpeg", "imagem/gif", "imagem/svg+xml"];
+            if (!in_array($arquivo['type'], $tiposValidos)){
+                die("<script> alert('Formato inválido!'); history.back(); </script>");
+            } else {
+                die("<script> alert('Formato válido!') </script> ");
+            }
+        }
     }
 
     
