@@ -16,6 +16,7 @@ if(isset($_POST['inserir'])){
 	
 	/* Aplicamos o id do usuário logado na sessão á propriedade id da classe/objeto Usuario */
 	$noticia->usuario->setId($_SESSION['id']);
+	
 	/* Caputurando dados do arquivo enviado */
 	$imagem = $_FILES['imagem'];
 
@@ -24,7 +25,7 @@ if(isset($_POST['inserir'])){
 	
 	/* Enviamos para o setter (e para o banco) SOMENTE a parte que se refere ao nome/extensão do arquivo */
 	$noticia->setImagem($imagem['name']);
-	Utilitarios::dump($noticia);
+	
 }
 ?>
 

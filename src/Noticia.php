@@ -43,17 +43,24 @@ final class Noticia {
         } catch (Exception $erro) {
             die("Erro: ".$erro->getMessage());
         }
+    }
 
         public function upload(array $arquivo){
             /* Definindo os formato aceitos */
-            $tiposValidos = ["imagem/png","imagem/jpeg", "imagem/gif", "imagem/svg+xml"];
+            $tiposValidos = ["image/png","image/jpeg", "image/gif", "image/svg+xml"];
             if (!in_array($arquivo['type'], $tiposValidos)){
                 die("<script> alert('Formato inválido!'); history.back(); </script>");
-            } else {
-                die("<script> alert('Formato válido!') </script> ");
-            }
+            } 
+            /* Acessando apenas o nome do arquivo */
+            $nome = $arquivo['name'];
+            /* Acessando os dados de acesso temporário */
+            $temporario = $arquivo['tmp_name'];
+            /* Definindo a pasta de destino junto com o nome do arquivo */
+            $destino = "../imagem/".$nome;
+            /* Usamos a função a baixo para pegar da área temporária e enviar para pasta de destino (com o nome do arquivo) */
+            move_uploaded_file($temporario, $destino);
         }
-    }
+    
 
     
     public function getId(): int
