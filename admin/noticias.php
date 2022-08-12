@@ -46,8 +46,12 @@ $listadeNoticias = $noticia->listar();
                         <td class="text-start"> <?=$noticia['titulo']?> </td>
                         <td> <?=Utilitarios::formataData($noticia['data'])?> </td>
 						<?php  if($_SESSION['tipo'] === 'admin') {  ?>
-							<!-- Operador ?? operador de Coalescência Nula: Na pràtica, o valor à esquerda é exibido(desde que ele exista), caso contrário o valor à direita -->
-							<td> <?=$noticia['autor'] ?? "Equipe Microblog"?> </td>
+							<!-- Operador ?? operador de Coalescência Nula: Na pràtica, o valor à esquerda é exibido(desde que ele exista), caso contrário o valor à direita <td> $noticia['autor'] ?? "Equipe Microblog" </td> -->
+							<td> <?php if($noticia['autor']){
+								echo Utilitarios::limitaCaractere($noticia['autor']);
+							} else {
+								echo "<i>Equipe Microblog</i>";	
+							} ?> </td>
 						<?php } ?>
                         <td> <?=$noticia['destaque']?> </td>
 						<td class="text-center">
