@@ -1,5 +1,12 @@
-<?php 
+<?php
+
+use Microblog\Noticia;
+use Microblog\Utilitarios;
+
 require_once "inc/cabecalho.php";
+$noticias = new Noticia;
+$noticias->listarPorCategorias();
+Utilitarios::dump($noticias); 
 ?>
 
 
@@ -36,9 +43,7 @@ require_once "inc/cabecalho.php";
     
 
 </div>        
-        
-          
-
+<?php include_once "inc/todas.php"; ?> 
 <?php 
 require_once "inc/rodape.php";
 ?>

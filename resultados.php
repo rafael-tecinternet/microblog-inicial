@@ -38,12 +38,7 @@ require_once "inc/cabecalho.php";
     </div>
 
 </div>        
-        
-        
-    
-
-
-
+<?php include_once "inc/todas.php"; ?> 
 <?php 
 require_once "inc/rodape.php";
 ?>
