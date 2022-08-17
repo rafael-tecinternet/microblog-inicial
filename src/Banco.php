@@ -4,10 +4,10 @@ namespace Microblog;
 use PDO, Exception;
 abstract class Banco {
     // Propriedades / atributos de acesso ao servidor de Banco de Dados
-    private static string $servidor = " localhost:3306";
-    private static string $usuario = "suniow89_admin";
-    private static string $senha = "L5T$8*Vz]IjG";
-    private static string $banco = "suniow89_microblog-rafael";
+    private static string $servidor = "localhost";
+    private static string $usuario = "root";
+    private static string $senha = "";
+    private static string $banco = "microblog_rafael";
     // private static \PDO $conexao; não precisa do use PDO
     private static PDO $conexao; /* precisa do "use PDO" */
     // Método de conexão ao banco
