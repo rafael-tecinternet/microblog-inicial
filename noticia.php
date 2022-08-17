@@ -8,7 +8,7 @@ $dados = $noticia->listarDetalhes();
     <article class="col-12">
         <h2> <?=$dados['titulo']?> </h2>
         <p class="font-weight-light">
-            <time><?=Utilitarios::formataData($dados['data'])?></time> - <span><?=$dados['autor'] ?? "<i>Equipe Microblog</i>"?></span>
+            <time datetime="<?=$dados['data']?>"><?=Utilitarios::formataData($dados['data'])?></time> - <span><?=$dados['autor'] ?? "<i>Equipe Microblog</i>"?></span>
         </p>
         <img src="imagem/<?=$dados['imagem']?>" alt="" class="float-start pe-2 img-fluid">
         <p><?= Utilitarios::formataTexto($dados['texto']) ?></p>

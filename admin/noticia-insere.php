@@ -1,7 +1,6 @@
 <?php
 use Microblog\Categoria;
 use Microblog\Noticia;
-use Microblog\Utilitarios;
 require_once "../inc/cabecalho-admin.php";
 
 $categotia = new Categoria;
