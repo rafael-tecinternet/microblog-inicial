@@ -1,0 +1,4 @@
+sub-dominio : rafael.sunioweb.com.br
+nome banco de dados: suniow89_microblog-rafael
+usuario: suniow89_admin
+senha: L5T$8*Vz]IjG
