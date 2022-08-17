@@ -4,13 +4,13 @@ Use PDO, Exception;
 
 final class Noticia {
     private int $id;
-    private string $data;
     private string $titulo;
     private string $texto;
     private string $resumo;
     private string $imagem;
     private string $destaque;
     private int $categoriaId;
+    private string $termo;
     /* Criando uma propriedade do tipo usuário, 
     ou seja, apartir da classe que criamos com o 
     objetivo de usar recursos dela. 
@@ -208,6 +208,19 @@ final class Noticia {
         return $resultado;
     } 
 
+    public function busca():array {
+        $sql = "SELECT titulo, data, resumo, id FROM noticias WHERE titulo LIKE :termo OR texto LIKE :termo OR resumo LIKE :termo ORDER BY data DESC";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindValue(":termo", '%'.$this->termo.'%', PDO::PARAM_STR);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $erro) {
+            die("Erro: ".$erro->getMessage());
+        }
+        return $resultado;
+    }
+
     
     public function getId(): int
     {
@@ -269,5 +282,14 @@ final class Noticia {
     public function setCategoriaId(int $categoriaId)
     {
         $this->categoriaId = filter_var($categoriaId, FILTER_SANITIZE_NUMBER_INT);
+    }
+
+    public function getTermo(): string
+    {
+        return $this->termo;
+    }
+    public function setTermo(string $termo)
+    {
+        $this->termo = filter_var($termo, FILTER_SANITIZE_SPECIAL_CHARS);
     }
 }
