@@ -1,10 +1,10 @@
 <?php
-
 use Microblog\Categoria;
-
- require_once "vendor/autoload.php"; 
+use Microblog\Noticia;
+require_once "vendor/autoload.php"; 
 $categorias = new Categoria;
 $listaDeCategoria = $categorias->listar();
+$noticia = new Noticia;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
