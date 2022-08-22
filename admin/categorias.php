@@ -7,14 +7,10 @@ require_once "../inc/cabecalho-admin.php";
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Categorias <span class="badge bg-dark">X</span>
+		Doações <span class="badge bg-dark">X</span>
 		</h2>
 
-		<p class="text-center mt-5">
-			<a class="btn btn-primary" href="categoria-insere.php">
-			<i class="bi bi-plus-circle"></i>	
-			Inserir nova categoria</a>
-		</p>
+		
 				
 		<div class="table-responsive">
 		
@@ -22,6 +18,8 @@ require_once "../inc/cabecalho-admin.php";
 				<thead class="table-light">
 					<tr>
 						<th>Nome</th>
+						<th>doação</th>
+						<th>Quantidade</th>
 						<th class="text-center">Operações</th>
 					</tr>
 				</thead>
@@ -30,7 +28,7 @@ require_once "../inc/cabecalho-admin.php";
 
 					<tr>
 						<td> Nome... </td>
-						<td class="text-center">
+						<td class="text-center" colspan="3">
 							<a class="btn btn-warning" 
 							href="categoria-atualiza.php">
 							<i class="bi bi-pencil"></i> Atualizar
