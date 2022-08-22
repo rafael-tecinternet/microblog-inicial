@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Ago-2022 às 13:44
+-- Tempo de geração: 22-Ago-2022 às 16:00
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.5
 
@@ -33,14 +33,6 @@ CREATE TABLE `admin` (
   `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `admin`
---
-
-INSERT INTO `admin` (`id`, `email`, `senha`) VALUES
-(1, 'matheus@gmail.com', '$2y$10$IEDUAeC3tpo6RTFuCJg06OS8rBdeKcOWmh.G8ikocslm6hckagc/K'),
-(2, 'Antônio', '$2y$10$kRRC9fXuHtny239KqDaJo.kL/HirUb9fm7bzwjoIWGCt24/GmPpdO');
-
 -- --------------------------------------------------------
 
 --
@@ -56,14 +48,6 @@ CREATE TABLE `cadastro` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `cadastro`
---
-
-INSERT INTO `cadastro` (`id`, `endereco`, `cep`, `cidade`, `numero_casa`, `usuario_id`) VALUES
-(5, 'Rua nove de julho', '08505-00', 'Ferraz de Vasconcelos', '1000', 2),
-(6, 'Rua nove de novembro', '0800-000', 'São Paulo', '1500', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -72,7 +56,7 @@ INSERT INTO `cadastro` (`id`, `endereco`, `cep`, `cidade`, `numero_casa`, `usuar
 
 CREATE TABLE `doacoes` (
   `id` int(11) NOT NULL,
-  `doacao` set('roupas','cobertores','calcados') NOT NULL,
+  `doacao` enum('roupas','cobertores','calcados') NOT NULL,
   `Quantidade` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -91,14 +75,6 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Matheus', 'matheus123@gmail.com', '$2y$10$Ij1ovHGmnFgJ.0y1J4/A6.6wTewS44W42e7e59.bZYzG5u0OIkmte'),
-(2, 'Lucas', 'lucas@gmail.com', '$2y$10$GTzS/heiBjX0ZU8qEcei5OKuRpFYlvLkG/aUyypAmSu/KoPyU6GUS');
-
---
 -- Índices para tabelas despejadas
 --
 
@@ -114,14 +90,14 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cadastro_usuarios` (`usuario_id`) USING BTREE;
+  ADD KEY `fk_cadastro_usuarios` (`usuario_id`);
 
 --
 -- Índices para tabela `doacoes`
 --
 ALTER TABLE `doacoes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_quero_doar_usuarios` (`usuario_id`);
+  ADD KEY `fk_doacoes_usuarios` (`usuario_id`);
 
 --
 -- Índices para tabela `usuarios`
@@ -138,25 +114,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `doacoes`
 --
 ALTER TABLE `doacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -166,13 +142,13 @@ ALTER TABLE `usuarios`
 -- Limitadores para a tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  ADD CONSTRAINT `fk_contato_meu_perfil_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `fk_cadastro_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Limitadores para a tabela `doacoes`
 --
 ALTER TABLE `doacoes`
-  ADD CONSTRAINT `fk_quero_doar_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `fk_doacoes_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
