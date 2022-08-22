@@ -1,6 +1,6 @@
 <?php
+require_once "../vendor/autoload.php";
 $pagina = basename($_SERVER['PHP_SELF']);
-require_once "../src/Usuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
@@ -14,7 +14,7 @@ require_once "../src/Usuario.php";
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-<body id="admin" class="d-flex flex-column h-100 bg-secondary bg-gradient">
+<body id="admin" class="d-flex flex-column h-100 bg-white bg-gradient">
     
 <header id="topo" class="border-bottom sticky-top">
 

@@ -14,7 +14,7 @@ final class Usuario {
     }
    
     public function listar():array{
-        $sql = "SELECT id, nome, email FROM usuarios ORDER BY nome";
+        $sql = "SELECT id, nome, email, senha FROM usuarios ORDER BY nome";
         try{
             $consulta = $this->conexao->prepare($sql);
             $consulta->execute();
@@ -24,6 +24,11 @@ final class Usuario {
         }
         return $resultado;    
     }
+
+    public function insere():void{
+        $sql = "INSERT IN TO usuarios(nome, email, senha) VALUES  ";
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -61,9 +66,4 @@ final class Usuario {
         $this->senha = filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS);
     }
 
-   
-    public function getConexao(): PDO
-    {
-        return $this->conexao;
-    }
 }

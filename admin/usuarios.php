@@ -1,13 +1,9 @@
 <?php
-
 use CalorDado\Usuario;
 use CalorDado\Utilitarios;
-
 require_once "../inc/cabecalho-admin.php";
-require_once "../src/Usuario.php";
 $usuario = new Usuario;
-$listaDeUsuario = $usuario->listar();
-Utilitarios::dump($listaDeUsuario);
+$listaDeUsuarios = $usuario->listar();
 ?>
 
 
@@ -15,7 +11,7 @@ Utilitarios::dump($listaDeUsuario);
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Usuários <span class="badge bg-dark">X</span>
+		Usuários <span class="badge bg-dark"><?=count($listaDeUsuarios)?></span>
 		</h2>
 
 		<p class="text-center mt-5">
@@ -31,17 +27,17 @@ Utilitarios::dump($listaDeUsuario);
 					<tr>
 						<th>Nome</th>
 						<th>E-mail</th>
-						<th>Tipo</th>
+						<th>Senha</th>
 						<th class="text-center">Operações</th>
 					</tr>
 				</thead>
 
 				<tbody>
-
+				<?php foreach($listaDeUsuarios as $usuario) { ?>
 					<tr>
-						<td> Nome... </td>
-						<td> E-mail... </td>
-						<td> Tipo... </td>
+						<td> <?=$usuario['nome']?> </td>
+						<td> <?=$usuario['email']?> </td>
+						<td> <?=Utilitarios::limitaCaractere( $usuario['senha'])?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="usuario-atualiza.php">
@@ -54,7 +50,7 @@ Utilitarios::dump($listaDeUsuario);
 							</a>
 						</td>
 					</tr>
-
+				<?php } ?>	
 				</tbody>                
 			</table>
 	</div>
