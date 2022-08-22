@@ -62,8 +62,8 @@ ALTER TABLE cadastro
 # Criar relacionamento entre: doacoes e usuarios
 
 ``` SQL
-  ALTER TABLE cadastro
-  ADD CONSTRAINT fk_cadastro_usuarios
+  ALTER TABLE doacoes
+  ADD CONSTRAINT fk_doacoes_usuarios
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id);
 ```
 
