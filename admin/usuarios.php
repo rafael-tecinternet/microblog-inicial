@@ -27,8 +27,6 @@ $listaDeUsuarios = $usuario->listar();
 					<tr>
 						<th>Nome</th>
 						<th>E-mail</th>
-						<th>Senha</th>
-						<th class="text-center">Operações</th>
 					</tr>
 				</thead>
 
@@ -37,7 +35,6 @@ $listaDeUsuarios = $usuario->listar();
 					<tr>
 						<td> <?=$usuario['nome']?> </td>
 						<td> <?=$usuario['email']?> </td>
-						<td> <?=Utilitarios::limitaCaractere( $usuario['senha'])?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="usuario-atualiza.php">

@@ -7,24 +7,22 @@ require_once "../inc/cabecalho-admin.php";
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Notícias <span class="badge bg-dark">X</span>
+		Cadastro <span class="badge bg-dark">X</span>
 		</h2>
 
-		<p class="text-center mt-5">
-			<a class="btn btn-primary" href="noticia-insere.php">
-			<i class="bi bi-plus-circle"></i>	
-			Inserir nova notícia</a>
-		</p>
+		<br>
 				
 		<div class="table-responsive">
 		
 			<table class="table table-hover">
 				<thead class="table-light">
 					<tr>
-                        <th>Título</th>
-                        <th>Data</th>
-                        <th>Autor</th>
-						<th class="text-center">Operações</th>
+                        <th class="col-2">Endereço</th>
+                        <th class="col-1">Cep</th>
+                        <th class="col-2">Cidade</th>
+						<th class="col-1">Número</th>
+
+						<th class="text-center" colspan="2">Operações</th>
 					</tr>
 				</thead>
 
@@ -34,6 +32,8 @@ require_once "../inc/cabecalho-admin.php";
                         <td> Título da notícia... </td>
                         <td> 21/12/2112 21:12 </td>
                         <td> Autor da notícia... </td>
+						<td>Cidade</td>
+						
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="noticia-atualiza.php">
