@@ -16,12 +16,8 @@ require_once "../inc/cabecalho-admin.php";
                 Meu perfil
             </a>
 			<a class="btn btn-dark bg-gradient btn-lg" href="categorias.php">
-                <i class="bi bi-tags"></i> <br>
-                Categorias
-            </a>
-			<a class="btn btn-dark bg-gradient btn-lg" href="noticias.php">
-                <i class="bi bi-newspaper"></i> <br>
-                Notícias
+                <i class="bi bi-clipboard2-heart-fill"></i> <br>
+                Doações
             </a>
 			<a class="btn btn-dark bg-gradient btn-lg" href="usuarios.php">
                 <i class="bi bi-people"></i> <br>
