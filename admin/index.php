@@ -25,7 +25,7 @@ require_once "../inc/cabecalho-admin.php";
                 <i class="bi bi-tags"></i> <br>
                 Categorias
             </a>
-			<a class="btn btn-dark bg-gradient btn-lg" href="usuarios.php">
+            <a class="btn btn-dark bg-gradient btn-lg" href="usuarios.php">
                 <i class="bi bi-people"></i> <br>
                 Usuários
             </a>
