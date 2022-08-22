@@ -1,5 +1,6 @@
 <?php
 $pagina = basename($_SERVER['PHP_SELF']);
+require_once "../src/Usuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
