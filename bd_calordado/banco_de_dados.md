@@ -70,5 +70,5 @@ ALTER TABLE cadastro
 # Adicionar campo quantidade na tabela doações
 
 ``` sql
-ALTER TABLE `cadastro` ADD `Quantidade` INT NOT NULL AFTER `doacao`;
+ALTER TABLE `doacoes` ADD `Quantidade` INT NOT NULL AFTER `doacao`;
 ```
