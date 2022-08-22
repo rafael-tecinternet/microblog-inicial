@@ -1,5 +1,5 @@
 <?php
-namespace Microblog;
+namespace CalorDado;
 // Indicamos o uso das classes nativas do PHP (ou seja, classes que não fazer parte do nosso namespace)
 use PDO, Exception;
 abstract class Banco {

@@ -1,5 +1,9 @@
-<?php 
+<?php
+
+use CalorDado\Usuario;
+
 require_once "../inc/cabecalho-admin.php";
+$usuario = new Usuario;
 ?>
 
 
