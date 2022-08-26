@@ -23,7 +23,7 @@ $listaDeDoacoes = $doacao->listarDoacoes();
 			<table class="table table-hover">
 				<thead class="table-light">
 					<tr>
-                        <th class="col-2">Endereço</th>
+                        <th class="col-2"><?=$doacao['endereco']?></th>
                         <th class="col-1">Cep</th>
                         <th class="col-2">Cidade</th>
 						<th class="col-1">Número</th>

@@ -13,11 +13,14 @@ final class Usuario {
         $this->conexao = Banco::conecta();
     }
    
+
     public function listarUsuario():array{
         /* fazer inner/right join depois com a tabela cadastro (para poder listar nomes e endereços dos usuarios) e poder ordenar por nome */
-        $sql = "SELECT id, nome, email, senha FROM usuarios ORDER BY nome";
+        $sql = "SELECT usuarios.id, usuarios.nome, usuarios.email, cadastro.endereco, cadastro.cep, cadastro.cidade, cadastro.numerocasa FROM usuarios LEFT JOIN cadastro
+        ON usuarios.id = cadastro.usuario_id ";
         try{
             $consulta = $this->conexao->prepare($sql);
+            //$consulta->bindParam(":id", $this->id, PDO::PARAM_INT);
             $consulta->execute();
             $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
         } catch(Exception $erro){
@@ -25,6 +28,7 @@ final class Usuario {
         }
         return $resultado;    
     }
+
 
     /* pode ser interessante adicionar o CRUD aqui depois para poder deletar um usuario */
 

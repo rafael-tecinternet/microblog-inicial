@@ -4,7 +4,10 @@ use CalorDado\Utilitarios;
 require_once "../inc/cabecalho-admin.php";
 $usuario = new Usuario;
 
+
+
 $listaDeUsuarios = $usuario->listarUsuario();
+Utilitarios::dump($listaDeUsuarios);
 ?>
 
 
@@ -36,6 +39,7 @@ $listaDeUsuarios = $usuario->listarUsuario();
 					<tr>
 						<td> <?=$usuario['nome']?> </td>
 						<td> <?=$usuario['email']?> </td>
+						
 						<td class="text-center" colspan="5">
 							<a class="btn btn-warning" 
 							href="usuario-atualiza.php">

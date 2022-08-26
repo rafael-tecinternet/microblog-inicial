@@ -14,7 +14,7 @@ final class Doacoes {
    
     public function listarDoacoes():array{
         /* faze right/inner join aqui depois com a tabela usuarios */
-        $sql = "SELECT id, doacao, quantidade FROM doacoes ORDER BY nome";
+        $sql = "SELECT id, doacao, quantidade FROM doacoes";
         try{
             $consulta = $this->conexao->prepare($sql);
             $consulta->execute();
