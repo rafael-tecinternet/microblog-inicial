@@ -3,7 +3,7 @@ use CalorDado\Usuario;
 use CalorDado\Utilitarios;
 require_once "../inc/cabecalho-admin.php";
 $usuario = new Usuario;
-$listaDeUsuarios = $usuario->listar();
+$listaDeUsuarios = $usuario->listarUsuario();
 ?>
 
 
@@ -13,12 +13,6 @@ $listaDeUsuarios = $usuario->listar();
 		<h2 class="text-center">
 		Usuários <span class="badge bg-dark"><?=count($listaDeUsuarios)?></span>
 		</h2>
-
-		<p class="text-center mt-5">
-			<a class="btn btn-primary" href="usuario-insere.php">
-			<i class="bi bi-plus-circle"></i>	
-			Inserir novo usuário</a>
-		</p>
 				
 		<div class="table-responsive">
 		

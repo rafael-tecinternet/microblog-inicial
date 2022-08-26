@@ -13,7 +13,7 @@ final class Usuario {
         $this->conexao = Banco::conecta();
     }
    
-    public function listar():array{
+    public function listarUsuario():array{
         /* fazer inner/right join depois com a tabela cadastro (para poder listar nomes e endereços dos usuarios) e poder ordenar por nome */
         $sql = "SELECT id, nome, email, senha FROM usuarios ORDER BY nome";
         try{

@@ -14,7 +14,7 @@ final class Cadastro {
         $this->conexao = Banco::conecta();
     }
    
-    public function listar():array{
+    public function listarCadastro():array{
         $sql = "SELECT id, endereco, cep, cidade, numero_casa FROM cadastro ORDER BY nome";
         try{
             $consulta = $this->conexao->prepare($sql);
