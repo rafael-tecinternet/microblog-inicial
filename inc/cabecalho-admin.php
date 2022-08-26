@@ -36,7 +36,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
                 <a class="nav-link" href="meu-perfil.php">Meu perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="noticias.php">Notícias</a>
+                <a class="nav-link" href="doacoes.php">Doações</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="usuarios.php">Usuários</a>

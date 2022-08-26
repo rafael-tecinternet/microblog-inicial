@@ -3,6 +3,7 @@ use CalorDado\Usuario;
 use CalorDado\Utilitarios;
 require_once "../inc/cabecalho-admin.php";
 $usuario = new Usuario;
+
 $listaDeUsuarios = $usuario->listarUsuario();
 ?>
 
@@ -19,8 +20,14 @@ $listaDeUsuarios = $usuario->listarUsuario();
 			<table class="table table-hover">
 				<thead class="table-light">
 					<tr>
-						<th>Nome</th>
-						<th>E-mail</th>
+						<th class="col-1">Nome</th>
+						<th class="col-1">E-mail</th>
+						<th class="col-2">Endereço</th>
+						<th class="col-1">CEP</th>
+						<th class="col-2">cidade</th>
+						<th class="col-2">numero da casa</th>
+						<th class="col-2 text-center" colspan="2">Operações</th>
+						<!-- tabela de usuarios quebrada, precisa alinhar ela -->
 					</tr>
 				</thead>
 
@@ -29,7 +36,7 @@ $listaDeUsuarios = $usuario->listarUsuario();
 					<tr>
 						<td> <?=$usuario['nome']?> </td>
 						<td> <?=$usuario['email']?> </td>
-						<td class="text-center">
+						<td class="text-center" colspan="5">
 							<a class="btn btn-warning" 
 							href="usuario-atualiza.php">
 							<i class="bi bi-pencil"></i> Atualizar

@@ -1,5 +1,11 @@
 <?php 
 require_once "../inc/cabecalho-admin.php";
+
+use CalorDado\Doacoes;
+use CalorDado\Utilitarios;
+require_once "../inc/cabecalho-admin.php";
+$doacao = new Doacoes;
+$listaDeDoacoes = $doacao->listarDoacoes();
 ?>
 
 
@@ -7,7 +13,7 @@ require_once "../inc/cabecalho-admin.php";
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Cadastro <span class="badge bg-dark">X</span>
+		Cadastro <span class="badge bg-dark"><?=count($listaDeDoacoes)?></span>
 		</h2>
 
 		<br>
@@ -21,8 +27,8 @@ require_once "../inc/cabecalho-admin.php";
                         <th class="col-1">Cep</th>
                         <th class="col-2">Cidade</th>
 						<th class="col-1">Número</th>
-
 						<th class="text-center" colspan="2">Operações</th>
+						<!-- tabela de doacoes quebrada, precisa alinhar ela -->
 					</tr>
 				</thead>
 

@@ -7,7 +7,7 @@ require_once "../inc/cabecalho-admin.php";
     <div class="container-fluid py-1">        
         <h2 class="display-4">Olá usuário!</h2>
         <p class="fs-5">Você está no <b>painel de controle e administração</b> do
-		site Microblog e seu <b>nível de acesso</b> é <span class="badge bg-dark"> admin/editor </span>.</p>
+		site CalorDado</p>
         <hr class="my-4">
 
         <div class="d-grid gap-2 d-md-block text-center">
@@ -15,9 +15,9 @@ require_once "../inc/cabecalho-admin.php";
                 <i class="bi bi-person"></i> <br>
                 Meu perfil
             </a>
-			<a class="btn btn-dark bg-gradient btn-lg" href="noticias.php">
-                <i class="bi bi-newspaper"></i> <br>
-                Notícias
+			<a class="btn btn-dark bg-gradient btn-lg" href="doacoes.php">
+                <i class="bi bi-box2-heart-fill"></i> <br>
+                Doacoes
             </a>
 			<a class="btn btn-dark bg-gradient btn-lg" href="usuarios.php">
                 <i class="bi bi-people"></i> <br>
