@@ -80,7 +80,7 @@ final class Usuario {
         }
     }
 
-    public function buscar():array | bool {
+    public function buscar(){
         $sql= "SELECT * FROM usuarios WHERE email = :email";
         try {
             $consulta = $this->conexao->prepare($sql);
