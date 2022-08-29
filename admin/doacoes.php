@@ -6,6 +6,8 @@ use CalorDado\Utilitarios;
 require_once "../inc/cabecalho-admin.php";
 $doacao = new Doacoes;
 $listaDeDoacoes = $doacao->listarDoacoes();
+
+Utilitarios::dump($listaDeDoacoes);
 ?>
 
 
@@ -23,10 +25,9 @@ $listaDeDoacoes = $doacao->listarDoacoes();
 			<table class="table table-hover">
 				<thead class="table-light">
 					<tr>
-                        <th class="col-2"><?=$doacao['endereco']?></th>
-                        <th class="col-1">Cep</th>
-                        <th class="col-2">Cidade</th>
-						<th class="col-1">Número</th>
+                        <th class="col-2">Doação</th>
+                        <th class="col-1">Quantidade</th>
+                        <th class="col-2">usuario</th>
 						<th class="text-center" colspan="2">Operações</th>
 						<!-- tabela de doacoes quebrada, precisa alinhar ela -->
 					</tr>
@@ -34,11 +35,11 @@ $listaDeDoacoes = $doacao->listarDoacoes();
 
 				<tbody>
 
+				<?php foreach ($listaDeDoacoes as $ListaDeDoacao) { ?>
 					<tr>
-                        <td> Título da notícia... </td>
-                        <td> 21/12/2112 21:12 </td>
-                        <td> Autor da notícia... </td>
-						<td>Cidade</td>
+                        <td> <?=$listaDeDoacoes[1]['doacao']?> </td>
+                        <td> <?=$listaDeDoacoes[1]['quantidade']?> </td>
+                        <td> <?=$listaDeDoacoes[1]['usuario_id']?> </td>
 						
 						<td class="text-center">
 							<a class="btn btn-warning" 
@@ -52,7 +53,7 @@ $listaDeDoacoes = $doacao->listarDoacoes();
 							</a>
 						</td>
 					</tr>
-
+				<?php } ?>
 				</tbody>                
 			</table>
 	</div>
