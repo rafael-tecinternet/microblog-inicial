@@ -39,6 +39,10 @@ Utilitarios::dump($listaDeUsuarios);
 					<tr>
 						<td> <?=$usuario['nome']?> </td>
 						<td> <?=$usuario['email']?> </td>
+						<td> <?=$usuario['endereco']?> </td>
+						<td> <?=$usuario['cep']?> </td>
+						<td> <?=$usuario['cidade']?> </td>
+						<td> <?=$usuario['numero']?> </td>
 						
 						<td class="text-center" colspan="5">
 							<a class="btn btn-warning" 

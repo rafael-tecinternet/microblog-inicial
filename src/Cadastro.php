@@ -16,7 +16,7 @@ final class Cadastro {
     }
    
     public function listarCadastro():array{
-        $sql = "SELECT id, endereco, cep, cidade, numero_casa FROM cadastro ORDER BY nome";
+        $sql = "SELECT id, endereco, cep, cidade, numero FROM cadastro ORDER BY nome";
         try{
             $consulta = $this->conexao->prepare($sql);
             $consulta->execute();
