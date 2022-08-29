@@ -14,7 +14,10 @@ final class Doacoes {
    
     public function listarDoacoes():array{
         /* faze right/inner join aqui depois com a tabela usuarios */
-        $sql = "SELECT id, doacao, quantidade, usuario_id FROM doacoes";
+        $sql = "SELECT doacoes.id, doacoes.doacao, doacoes.quantidade, usuarios.nome FROM doacoes 
+        LEFT JOIN usuarios
+        ON doacoes.usuario_id = usuarios.id";
+        
         try{
             $consulta = $this->conexao->prepare($sql);
             $consulta->execute();

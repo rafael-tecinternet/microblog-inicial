@@ -15,7 +15,7 @@ Utilitarios::dump($listaDeDoacoes);
 	<article class="col-12 bg-white rounded shadow my-1 py-4">
 		
 		<h2 class="text-center">
-		Cadastro <span class="badge bg-dark"><?=count($listaDeDoacoes)?></span>
+		Doações <span class="badge bg-dark"><?=count($listaDeDoacoes)?></span>
 		</h2>
 
 		<br>
@@ -37,13 +37,13 @@ Utilitarios::dump($listaDeDoacoes);
 
 				<?php foreach ($listaDeDoacoes as $ListaDeDoacao) { ?>
 					<tr>
-                        <td> <?=$listaDeDoacoes[1]['doacao']?> </td>
-                        <td> <?=$listaDeDoacoes[1]['quantidade']?> </td>
-                        <td> <?=$listaDeDoacoes[1]['usuario_id']?> </td>
+                        <td> <?=$ListaDeDoacao['doacao']?> </td>
+                        <td> <?=$ListaDeDoacao['quantidade']?> </td>
+                        <td> <?=$ListaDeDoacao['nome']?> </td>
 						
 						<td class="text-center">
 							<a class="btn btn-warning" 
-							href="noticia-atualiza.php">
+							href="noticia-atualiza.php?=id">
 							<i class="bi bi-pencil"></i> Atualizar
 							</a>
 						

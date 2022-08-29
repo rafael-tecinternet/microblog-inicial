@@ -25,10 +25,12 @@ Utilitarios::dump($listaDeUsuarios);
 					<tr>
 						<th class="col-1">Nome</th>
 						<th class="col-1">E-mail</th>
-						<th class="col-2">Endereço</th>
+						<th class="col-1">Endereço</th>
 						<th class="col-1">CEP</th>
-						<th class="col-2">cidade</th>
+						<th class="col-1">cidade</th>
 						<th class="col-2">numero da casa</th>
+						<th class="col-2">complemento</th>
+						<th class="col-1">bairro</th>
 						<th class="col-2 text-center" colspan="2">Operações</th>
 						<!-- tabela de usuarios quebrada, precisa alinhar ela -->
 					</tr>
@@ -43,6 +45,8 @@ Utilitarios::dump($listaDeUsuarios);
 						<td> <?=$usuario['cep']?> </td>
 						<td> <?=$usuario['cidade']?> </td>
 						<td> <?=$usuario['numero']?> </td>
+						<td> <?=$usuario['complemento']?> </td>
+						<td> <?=$usuario['bairro']?> </td>
 						
 						<td class="text-center" colspan="5">
 							<a class="btn btn-warning" 
