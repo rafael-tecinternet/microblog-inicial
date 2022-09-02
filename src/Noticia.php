@@ -22,7 +22,7 @@ final class Noticia {
         /* No momento em que um objeto Noticia for instanciado nas páginas, aproveitaremos para também instanciar um objeto Usuario e com isso acesssar recursos desta classe */
         $this->usuario = new Usuario;
         /* Reaproveitando a conexão já existente a partir da classe de Usuario */
-        $this->conexao = $this->usuario->getConexao();;
+        $this->conexao = $this->usuario->getConexao();
     }
 
     public function inserir():void{
