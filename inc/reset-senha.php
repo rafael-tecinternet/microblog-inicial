@@ -65,6 +65,17 @@ if (isset($_POST["reset-senha"])) {
     $mensagem .= '<p>Aqui esta o link para poder mudar sua senha: </br>';
     $mensagem .= '<a href="' . $url . '">' . $url . '</a></p>';
 
+    /* o \r e \n servem para ir para uma nova linha no PHP */
+    
+    $headers = "de Calor dado <(email do calor dado)>\r\n";
+    $headers .= "Responder para: <(email do calor dado)>\r\n";
+    $headers .= "Content-type: text/html\r\n";
+
+    mail($emailPara, $assunto, $mensagem, $headers);
+    
+    header("location: ../reset-request.php?reset=sucesso");
+
+
 } else {
     // caso o usuario entrar nessa pagina de recuperacao de senha por engano, ele vai para a localizacao informada
     header("location: ../index.php");
