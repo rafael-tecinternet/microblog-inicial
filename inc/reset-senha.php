@@ -57,6 +57,7 @@ if (isset($_POST["reset-senha"])) {
 
     mysqli_stmt_close($declaracao);
     
+    
     $emailPara = $emailUsuario;
     
     $assunto = "Redefinir sua senha na Calor dado";
@@ -71,8 +72,11 @@ if (isset($_POST["reset-senha"])) {
     $headers .= "Responder para: <(email do calor dado)>\r\n";
     $headers .= "Content-type: text/html\r\n";
 
+    
+    /* aqui ele vai usar a função do PHP de email e incluir o conteudo que vai ser enviado para o email do usuario */
     mail($emailPara, $assunto, $mensagem, $headers);
     
+    /* aqui ele vai  */
     header("location: ../reset-request.php?reset=sucesso");
 
 
