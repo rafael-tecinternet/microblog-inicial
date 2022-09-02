@@ -11,7 +11,7 @@ if (isset($_POST["reset-senha"])) {
 
     /* a variavel URL vai pegar a pagina de recuperar a senha e concatenar com as variaveis $selecionador e $token */
 
-    $url = "localhost/microblog-inicial/esqueceu-sua-senha.php?selecionador=".$selecionador. "&validator=". bin2hex($token);
+    $url = "localhost/microblog-inicial/criar-nova-senha.php?selecionador=".$selecionador. "&validacao=". bin2hex($token);
 
     /* criando uma data de expiracao para o token */
 
@@ -68,8 +68,9 @@ if (isset($_POST["reset-senha"])) {
 
     /* o \r e \n servem para ir para uma nova linha no PHP */
     
-    $headers = "de Calor dado <(email do calor dado)>\r\n";
-    $headers .= "Responder para: <(email do calor dado)>\r\n";
+    /* email temporario sendo usado apenas para testes, colocar o email da calor dado depois */
+    $headers = "de Calor dado <(degehi9598@otodir.com)>\r\n";
+    $headers .= "Responder para: <(degehi9598@otodir.com)>\r\n";
     $headers .= "Content-type: text/html\r\n";
 
     
