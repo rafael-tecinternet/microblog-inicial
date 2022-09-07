@@ -2,7 +2,7 @@
 namespace Microblog;
 use PDO, Exception;
 
-final class Categoria {
+final class Doacoes {
     private int $id;
     private string $nome;
 

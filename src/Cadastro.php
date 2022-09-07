@@ -2,15 +2,16 @@
 namespace Microblog;
 Use PDO, Exception;
 
-final class Noticia {
+final class Cadastro {
     private int $id;
-    private string $titulo;
-    private string $texto;
-    private string $resumo;
-    private string $imagem;
-    private string $destaque;
-    private int $categoriaId;
-    private string $termo;
+    private string $telefone;
+    private string $endereco;
+    private string $cep;
+    private string $cidade;
+    private string $numero;
+    private string $bairro;
+    private string $complemento;
+    private int $doacoesId;
     /* Criando uma propriedade do tipo usuário, 
     ou seja, apartir da classe que criamos com o 
     objetivo de usar recursos dela. 
@@ -230,66 +231,75 @@ final class Noticia {
         $this->id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     }
 
-    public function getTitulo(): string
+    public function getTelefone(): string
     {
-        return $this->titulo;
+        return $this->telefone;
     }
-    public function setTitulo(string $titulo)
+    public function setTelefone(string $telefone)
     {
-        $this->titulo = filter_var($titulo, FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
-    public function getTexto(): string
-    {
-        return $this->texto;
-    }
-    public function setTexto(string $texto)
-    {
-        $this->texto = filter_var($texto, FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->telefone = $telefone;
     }
 
-    public function getResumo(): string
+    public function getEndereco(): string
     {
-        return $this->resumo;
+        return $this->endereco;
     }
-    public function setResumo(string $resumo)
+    public function setEndereco(string $endereco)
     {
-        $this->resumo = filter_var($resumo, FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
-    public function getImagem(): string
-    {
-        return $this->imagem;
-    }
-    public function setImagem(string $imagem)
-    {
-        $this->imagem = filter_var($imagem, FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->endereco = $endereco;
     }
 
-    public function getDestaque(): string
+    public function getCep(): string
     {
-        return $this->destaque;
+        return $this->cep;
     }
-    public function setDestaque(string $destaque)
+    public function setCep(string $cep)
     {
-        $this->destaque = filter_var($destaque, FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
-    public function getCategoriaId(): int
-    {
-        return $this->categoriaId;
-    }
-    public function setCategoriaId(int $categoriaId)
-    {
-        $this->categoriaId = filter_var($categoriaId, FILTER_SANITIZE_NUMBER_INT);
+        $this->cep = $cep;
     }
 
-    public function getTermo(): string
+    public function getCidade(): string
     {
-        return $this->termo;
+        return $this->cidade;
     }
-    public function setTermo(string $termo)
+    public function setCidade(string $cidade)
     {
-        $this->termo = filter_var($termo, FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->cidade = $cidade;
+    }
+
+    public function getNumero(): string
+    {
+        return $this->numero;
+    }
+    public function setNumero(string $numero)
+    {
+        $this->numero = $numero;
+    }
+
+    public function getBairro(): string
+    {
+        return $this->bairro;
+    }
+    public function setBairro(string $bairro)
+    {
+        $this->bairro = $bairro;
+    }
+
+    public function getComplemento(): string
+    {
+        return $this->complemento;
+    }
+    public function setComplemento(string $complemento)
+    {
+        $this->complemento = $complemento;
+    }
+
+    public function getDoacoesId(): int
+    {
+        return $this->doacoesId;
+    }
+    public function setDoacoesId(int $doacoesId)
+    {
+        $this->doacoesId = $doacoesId;
     }
 }
