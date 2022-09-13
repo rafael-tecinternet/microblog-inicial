@@ -12,9 +12,10 @@ final class Doacoes {
         $this->conexao = Banco::conecta();
     }
    
-    public function listarDoacoes():array{
+    public function listarUm():array{
         /* faze right/inner join aqui depois com a tabela usuarios */
-        $sql = "SELECT doacoes.id, doacoes.doacao, doacoes.quantidade, usuarios.nome FROM doacoes 
+        $sql = "SELECT usuarios.id, usuarios.nome, SUM(doacoes.roupas) AS roupas, SUM(doacoes.calcados) AS calcados, 
+        SUM(doacoes.cobertores) AS cobertores, doacoes.pix FROM doacoes 
         LEFT JOIN usuarios
         ON doacoes.usuario_id = usuarios.id";
         
